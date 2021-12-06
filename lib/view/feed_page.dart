@@ -31,36 +31,56 @@ class Feed_State extends State<Feed> {
     return Column(
       //Cabeçalho do post
       children: [
-        Row(
-          children: [
-            //Foto de perfil
-            Container(
-              width: 45,
-              height: 45,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage('https://yt3.ggpht.com/yti/APfAmoGpbw6FLUqKX4x6FOmZ10F6l0QDlMmYw0-hJB5r=s88-c-k-c0x00ffffff-no-rj-mo')
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              //Foto de perfil
+              
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  border: Border.all(
+                    width: 3,
+                    color: Colors.black,
                   ),
-                borderRadius: BorderRadius.circular(50),
-                border: Border.all(
-                  width: 3,
-                  color: Colors.black,
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(50),
+                  child: Image.network(
+                    'https://yt3.ggpht.com/yti/APfAmoGpbw6FLUqKX4x6FOmZ10F6l0QDlMmYw0-hJB5r=s88-c-k-c0x00ffffff-no-rj-mo',
+                    width: 45,
+                  ),
                 ),
               ),
-            ),
-          
-            Expanded(
-              child: Column(
-                children: [
-                  Text('Kauã Duarte'),
-                  Text('Cancún'),
-                ],
+            
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(
+                        'Kauã Duarte',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text('Cancún, México'),
+                    ],
+                  ),
+                ),
               ),
-            ),
-            Icon(Icons.more_vert),
+              IconButton(
+                onPressed: () {}, 
+                icon: Icon(Icons.more_vert)),
 
-          ],
+            ],
+          ),
         ),
+      //Imagem do post
+        
+      //Rodapé  
       ],
     );
   }
@@ -118,12 +138,17 @@ class Feed_State extends State<Feed> {
               width: 70,
               height: 70,
               decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    'assets/images/avatar.png'
+                  ),
+                ),
                 borderRadius: BorderRadius.circular(50),
                 border: Border.all(color: Colors.white, width: 3),
               ),
             ),           
           ),
-          Text("Waycon"),
+          Text("Duarte"),
         ],
       ),
     );
