@@ -1,5 +1,6 @@
 // ignore_for_file: use_key_in_widget_constructors, camel_case_types, prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
 
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -36,7 +37,6 @@ class Feed_State extends State<Feed> {
           child: Row(
             children: [
               //Foto de perfil
-              
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
@@ -79,8 +79,28 @@ class Feed_State extends State<Feed> {
           ),
         ),
       //Imagem do post
-        
-      //Rodapé  
+        AspectRatio(
+          aspectRatio: 3 / 2,
+          child: Image.network(
+            'https://image.freepik.com/free-psd/social-media-instagram-post-template_47618-73.jpg',
+            //height: 325,
+            //width: MediaQuery.of(context).size.width,
+            fit: BoxFit.cover,
+          ),
+        ),
+      //Rodapé 
+        Row(
+          children: [
+            IconButton(
+              onPressed: () {}, 
+              icon: Icon(Icons.favorite_border)
+            ),
+            IconButton(
+              onPressed: () {}, 
+              icon: Icon(Icons.question_answer)
+            ),
+          ],
+        ),
       ],
     );
   }
