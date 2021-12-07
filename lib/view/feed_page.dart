@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, camel_case_types, prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
+// ignore_for_file: use_key_in_widget_constructors, camel_case_types, prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, unused_label
 
 
 import 'package:flutter/material.dart';
@@ -11,6 +11,7 @@ class Feed extends StatefulWidget {
 }
 
 class Feed_State extends State<Feed> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,18 +21,41 @@ class Feed_State extends State<Feed> {
           children: [
             containerStories(),
             post(),
+            post(),
+            post(),
+            post(),
           ],
         ),
       ),
+      bottomNavigationBar: bottomBar(),
     );
   }
 }
 
+  bottomBar(){
+    return BottomNavigationBar(
+      backgroundColor: Colors.blue,
+      items: [
+        BottomNavigationBarItem(
+          label: '',
+          icon: Icon(Icons.home, color: Colors.white,),           
+        ),
+        BottomNavigationBarItem(
+          label: '',
+          icon: Icon(Icons.add_a_photo, color: Colors.white,)
+        ),
+        BottomNavigationBarItem(
+          label: '',
+          icon: Icon(Icons.logout, color: Colors.white,)
+        ),
+      ],
+    );
+  }
 
   post(){
     return Column(
-      //Cabeçalho do post
       children: [
+      //Cabeçalho do post
         Padding(
           padding: EdgeInsets.all(8.0),
           child: Row(
@@ -53,7 +77,7 @@ class Feed_State extends State<Feed> {
                   ),
                 ),
               ),
-            
+              //Nome e localidade
               Expanded(
                 child: Padding(
                   padding: EdgeInsets.all(8.0),
@@ -71,10 +95,10 @@ class Feed_State extends State<Feed> {
                   ),
                 ),
               ),
+              //Botão de opções
               IconButton(
                 onPressed: () {}, 
                 icon: Icon(Icons.more_vert)),
-
             ],
           ),
         ),
@@ -91,13 +115,25 @@ class Feed_State extends State<Feed> {
       //Rodapé 
         Row(
           children: [
-            IconButton(
-              onPressed: () {}, 
-              icon: Icon(Icons.favorite_border)
+            IconButton(  
+              icon: Icon(Icons.favorite),
+              iconSize: 35,
+              splashColor: Colors.red,
+              onPressed: () {
+                
+              },
             ),
+            Text("Curtir"),
+            Spacer(),
             IconButton(
-              onPressed: () {}, 
-              icon: Icon(Icons.question_answer)
+              icon: Icon(Icons.question_answer),
+              iconSize: 35,
+              splashColor: Colors.blue,
+              onPressed: (){},
+            ),
+            Padding(
+              padding: EdgeInsets.only(right: 8),
+              child: Text("Comentar"),
             ),
           ],
         ),
@@ -107,14 +143,18 @@ class Feed_State extends State<Feed> {
 
   titleBar(){
     return AppBar(
-        elevation: 1,
-        title: Text("Publi Life", style: GoogleFonts.pacifico(fontSize: 25)),
-        centerTitle: true,
-        actions: [
-          Icon(Icons.send),
-        ],
-        leading: Icon(Icons.photo_camera),
-      );
+      backgroundColor: Colors.blue,
+      elevation: 1,
+      title: Text("Publi Life", style: GoogleFonts.pacifico(fontSize: 25)),
+      centerTitle: true,
+      actions: [
+        Padding(
+          padding: EdgeInsets.only(right: 8.0),
+          child: Icon(Icons.send),
+        ),
+      ],
+      leading: Icon(Icons.photo_camera,),
+    );
   }
   
   containerStories(){
