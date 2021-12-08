@@ -46,7 +46,7 @@ class Feed_State extends State<Feed> {
         ),
         BottomNavigationBarItem(
           label: '',
-          icon: Icon(Icons.logout, color: Colors.white,)
+          icon: Icon(Icons.account_circle, color: Colors.white,)
         ),
       ],
     );
@@ -150,7 +150,7 @@ class Feed_State extends State<Feed> {
       actions: [
         Padding(
           padding: EdgeInsets.only(right: 8.0),
-          child: Icon(Icons.send),
+          child: Icon(Icons.logout),
         ),
       ],
       leading: Icon(Icons.photo_camera,),
